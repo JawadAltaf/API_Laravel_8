@@ -16,6 +16,7 @@ class DeviceController extends Controller
         $result = $device->save();
         if($result)
         {
+            echo "you are great";
             return ["Result" => "Data has been saved"];
         }else{
             return ["Result" => "Operation failed"];
