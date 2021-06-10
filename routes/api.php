@@ -26,3 +26,4 @@ Route::get('list',[UserController::class,'list']); // Get Method API with Databa
 Route::post('postApi',[DeviceController::class,'add']); // Post API for inserting data into database
 Route::put("putApi",[DeviceController::class,'update']); // Put API for updating data into database
 Route::delete("deleteApi/{id}",[DeviceController::class,"delete"]); // Delete API for deleting data from database
+Route::get("searchApi/{name}",[DeviceController::class,"search"]); // Search API for searching data from database

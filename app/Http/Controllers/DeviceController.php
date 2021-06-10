@@ -7,6 +7,7 @@ use App\Models\Device;
 
 class DeviceController extends Controller
 {
+    // For Add data into database through API
     public function add(Request $req)
     {
         $device = new Device;
@@ -23,6 +24,7 @@ class DeviceController extends Controller
         
     }
 
+    // For Update data into database through API
     public function update(Request $req)
     {
         $device = Device::find($req->id);
@@ -39,7 +41,7 @@ class DeviceController extends Controller
         }
     }
 
-
+    // For Delete data from database through API
     public function delete($id)
     {
         $device = Device::find($id);
@@ -50,5 +52,17 @@ class DeviceController extends Controller
         }else{
             return ["Result" => "Something went wrong"];
         }
+    }
+
+    // For search data from database through API
+    public function search($name)
+    {
+        $searchResult = Device::where("name","like","%".$name."%")->get();
+        if(count($searchResult))
+        {
+            return $searchResult;
+        }else{
+            return array("Result","No record found");
+        } 
     }
 }
