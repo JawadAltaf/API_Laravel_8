@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Device;
+use Validator;
 
 class DeviceController extends Controller
 {
@@ -64,5 +65,32 @@ class DeviceController extends Controller
         }else{
             return array("Result","No record found");
         } 
+    }
+
+    // Validation API for validate data before insert into database
+    public function validation(Request $req)
+    {
+        $rules = array(
+            "email" => "required"
+        );
+        $validator = Validator::make($req->all(), $rules);
+        if($validator->fails())
+        {
+            return $validator->errors();
+            // return response()->json($validator->errors(),401);
+        }else{
+
+            $device = new Device;
+            $device->name = $req->name;
+            $device->email = $req->email;
+            $device->address = $req->address;
+            $result = $device->save();
+            if($result)
+            {
+                return ["Result" => "Data has been saved"];
+            }else{
+                return ["Result" => "Operation failed"];
+            }
+        }
     }
 }

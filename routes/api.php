@@ -27,3 +27,4 @@ Route::post('postApi',[DeviceController::class,'add']); // Post API for insertin
 Route::put("putApi",[DeviceController::class,'update']); // Put API for updating data into database
 Route::delete("deleteApi/{id}",[DeviceController::class,"delete"]); // Delete API for deleting data from database
 Route::get("searchApi/{name}",[DeviceController::class,"search"]); // Search API for searching data from database
+Route::post("validationApi",[DeviceController::class,"validation"]);// Validation API before insert data into database
