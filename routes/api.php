@@ -23,4 +23,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("getdata",[getAPIController::class,'getData']); // simple hand made API Get Method
 Route::get('list',[UserController::class,'list']); // Get Method API with Database
-Route::post('postApi',[DeviceController::class,'add']);
+Route::post('postApi',[DeviceController::class,'add']); // Post API for inserting data into database
+Route::put("putApi",[DeviceController::class,'update']); // Put API for updating data into database
