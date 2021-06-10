@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\getAPIController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -28,3 +29,4 @@ Route::put("putApi",[DeviceController::class,'update']); // Put API for updating
 Route::delete("deleteApi/{id}",[DeviceController::class,"delete"]); // Delete API for deleting data from database
 Route::get("searchApi/{name}",[DeviceController::class,"search"]); // Search API for searching data from database
 Route::post("validationApi",[DeviceController::class,"validation"]);// Validation API before insert data into database
+Route::post("FileUploadApi",[FileController::class,"upload"]);// File Upload through API
